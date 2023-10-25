@@ -21,8 +21,6 @@ public class MemberService {
     }
 
     public void addMember(MemberRequest memberRequest){
-        //중복체크
-        //인증
         Member member = memberRequestMapper.toEntity(memberRequest);
         memberRepository.save(member);
     }
