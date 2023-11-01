@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/member")
@@ -25,6 +26,11 @@ public class MemberController {
         //클라이언트에서 form-data로 보낼거면 @modelattribute 어노테이션 사용 (포스트맨의 경우 body > form-data)
         //그러나 클라이언트에서 json형식으로 보낸다면 @requestbody 어노테이션 사용 (포스트맨의 경우 raw -> json 형식)
         memberService.addMember(memberRequest);
+    }
+
+    @GetMapping("/list")
+    public List<MemberResponse> loadMembers(){
+        return memberService.loadMembers();
     }
 
 }

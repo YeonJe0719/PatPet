@@ -9,6 +9,8 @@ import com.yj.patpet.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -23,5 +25,9 @@ public class MemberService {
     public void addMember(MemberRequest memberRequest){
         Member member = memberRequestMapper.toEntity(memberRequest);
         memberRepository.save(member);
+    }
+
+    public List<MemberResponse> loadMembers(){
+        return memberResponseMapper.toDtoList(memberRepository.findAll());
     }
 }
