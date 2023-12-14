@@ -16,13 +16,13 @@ public class SpringSecurityConfig {
         http.csrf().disable().cors().disable()
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .anyRequest().authenticated()	// 어떠한 요청이라도 인증필요
+                        .anyRequest().authenticated()
                 )
-                .formLogin(login -> login	// form 방식 로그인 사용
-                        .defaultSuccessUrl("/", true)	// 성공 시 메인으로
-                        .permitAll()	// 대시보드 이동이 막히면 안되므로 얘는 허용
+                .formLogin(login -> login
+                        .defaultSuccessUrl("/", true)
+                        .permitAll()
                 )
-                .logout(withDefaults());	// 로그아웃은 기본설정으로 (/logout으로 인증해제)
+                .logout(withDefaults());
 
         return http.build();
     }
