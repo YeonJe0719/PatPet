@@ -21,7 +21,6 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
     //위의 noargscontructor 어노테이션을 사용하고 있고 setter가 없으니까 name을 가진 생성자가 없어서 builder로 안만들어주면 null값이 들어간 객체만 만들어짐
